@@ -1,0 +1,38 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.screenrc
+
+# Set the default window name to 
+shelltitle "$ |bash"
+startup_message off
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# erase background with current bg color
+defbce "on" 
+
+# Some decryption hints:
+# %{= KW}     background light black (aka dark gray) with foreground light white
+# %{= wb}     background dark white (ake light gray) with foreground dark blue
+# %-Lw        all windows before the current window.
+# %n%f %t     current window number, flags and title.
+# %+Lw        all windows after the current window.
+# %-=         pad remaining spaces.
+# %H          hostname.
+# %M%d %s     month and day (MmmDD) and current time (HH:MM).
+
+#Original : caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{= rW} %l %{= Gk} %0c:%s %d/%m %{-}"
+#caption always "%{= KW}%-Lw%{= wb}%n %t %{= KW}%+Lw %-=| ${USER}@%H | %M%d %c%{-}"
+
+caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{-}"
+
+screen -t GIT 0 
+screen -t MAPI 1
+screen -t ServersMAPI 2 
+screen -t gEVO 3 
+screen -t OpenChange 4 
+screen -t GODMODE 5
+screen -t Misc 6

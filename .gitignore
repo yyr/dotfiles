@@ -1,0 +1,9 @@
+# -*- mode: conf; -*-
+backups/*
+bin/*
+*~
+\#~
+.*~
+.#~
+*.log
+*.down

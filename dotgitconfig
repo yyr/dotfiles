@@ -1,0 +1,41 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.gitconfig
+[user]
+	name = Yakkala Yagnesh Raghava
+	email = yagneshmsc@gmail.com
+
+[color]
+	ui = true
+ [color "branch"]
+     current = yellow reverse
+     local = yellow
+     remote = green
+ [color "diff"]
+     meta = yellow bold
+     frag = magenta bold
+     old = red bold
+     new = green bold
+ [color "status"]
+     added = yellow
+     changed = green
+     untracked = cyan
+ [color "diff"]
+     whitespace = red reverse
+ [core]
+     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+     excludesfile = ~/.gitignore_global
+
+[alias]
+    st = status
+    ci = commit
+    cam = commit -am
+    br = branch
+    brd = branch -d
+    co = checkout
+    cob = checkout -b
+    df = diff
+    lg = log -p
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    staged = diff --cached
