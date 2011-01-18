@@ -20,9 +20,10 @@ else
     source ~/.dirs
 fi
 alias L='cat ~/.dirs'
-G () { cd ${!1} ; } # goes to distination dir otherwise , stay in the dir
+G () { cd ${1:-$(pwd)} ; } # goes to distination dir otherwise , stay in the dir
 S () { /bin/sed "/$@/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; }
 R () { /bin/sed "/$@/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs;}
+alias U='source ~/.dirs'
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
 
 #for ease between folder
