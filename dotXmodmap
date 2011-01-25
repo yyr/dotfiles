@@ -1,0 +1,7 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.Xmodmapx
+
+keycode 102 = Alt_L
+
+(scratch “$ “)
