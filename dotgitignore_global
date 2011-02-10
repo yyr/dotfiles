@@ -39,3 +39,7 @@ Thumbs.db
 
 # buildlog i keep in one place
 buildlog/
+
+# Garbage (emacs autosaving)
+.\#*
+\#*\#
