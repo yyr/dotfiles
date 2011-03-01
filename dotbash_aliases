@@ -173,6 +173,7 @@ alias lol="git lol"
 alias lola="git lola"
 alias gcheckback="git checkout HEAD --"
 alias ggoback="git checkout HEAD^ --"
+alias gitreset="git reset --hard"
 
 alias gl="git pull --rebase"
 alias gp="git push origin HEAD"
