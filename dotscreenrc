@@ -41,7 +41,7 @@ autodetach on
 #startups
 #--------
 
-screen -t emacs "emacs -nw"
+screen -t emacs emacs
 screen -t work 1
 screen -t lab/lpy 2 
 screen -t git 3 
