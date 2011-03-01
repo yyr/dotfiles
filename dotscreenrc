@@ -24,12 +24,24 @@ defbce "on"
 # %H          hostname.
 # %M%d %s     month and day (MmmDD) and current time (HH:MM).
 
-#Original : caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{= rW} %l %{= Gk} %0c:%s %d/%m %{-}"
+#Original :
+
+caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{= rW} %l %{= Gk} %0c:%s %d/%m %{-}"
+
 #caption always "%{= KW}%-Lw%{= wb}%n %t %{= KW}%+Lw %-=| ${USER}@%H | %M%d %c%{-}"
 
-caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{-}"
+#caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{-}"
 
-screen -t emacs 0 
+# Use C-z instead of C-a as this makes more sense for Emacs
+escape ^za
+
+# Detach on hangup
+autodetach on
+
+#startups
+#--------
+
+screen -t emacs "emacs -nw"
 screen -t work 1
 screen -t lab/lpy 2 
 screen -t git 3 
