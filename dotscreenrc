@@ -29,10 +29,9 @@ defbce "on"
 
 caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{-}"
 
-screen -t GIT 0 
-screen -t MAPI 1
-screen -t ServersMAPI 2 
-screen -t gEVO 3 
-screen -t OpenChange 4 
-screen -t GODMODE 5
-screen -t Misc 6
+screen -t emacs 0 
+screen -t work 1
+screen -t lab/lpy 2 
+screen -t git 3 
+screen -t site 4 
+screen -t misc 5
