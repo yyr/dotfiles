@@ -43,3 +43,10 @@ buildlog/
 # Garbage (emacs autosaving)
 .\#*
 \#*\#
+*~
+\#~
+.*~
+.#~
+core
+core.*
+*~
