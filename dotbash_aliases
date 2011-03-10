@@ -183,6 +183,11 @@ alias gr="git rm"
 alias gmv="git mv"
 alias gu="git pull --rebase && git push origin HEAD"
 
+# grads
+# -----------
+alias grads='grads -l'
+
+
 # mounting and unmounting
 # -----------------------
 #sshfs
