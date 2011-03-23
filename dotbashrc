@@ -179,4 +179,15 @@ function ask()          # See 'killps' for example of use.
 # Make the following commands run in background automatically:
 #function firefox() { command firefox "$@" & }
 
+if [ -f ~/.rvm/scripts/rvm ]; then
+    source ~/.rvm/scripts/rvm
+    rvm 1.9.2
+fi
+
+if  [ -f ~/.perlbrew/perl5/perlbrew/etc/bashrc ] ; then
+    source ~/.perlbrew/perl5/perlbrew/etc/bashrc
+fi
+
+
+ 
 #+END
