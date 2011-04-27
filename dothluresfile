@@ -1,4 +1,4 @@
-! -*- mode: conf; -*-
+! -*- mode: ncl -*-
 !+DEST=$HOME/
 !+FNAME=.hluresfile
 !=========================================
@@ -34,3 +34,6 @@
 ! is larger than 500 x 500, you may need this.
 *wsMaximumSize: 32556688
 !==========================================
+
+!sources:
+!http://www.ncl.ucar.edu/Document/Graphics/hluresfile
