@@ -28,11 +28,11 @@ sub get_file_details {
   open(my $fh, '<', "$fname_in") or die "cannot open $fname_in :$! \n";
 
   while (<$fh>) {
-    if (/\#\+DEST=(.*)/i) {
+    if (/.\+DEST=(.*)/i) {
       $dir = $+;
     }
 
-    if (/\#\+FNAME=(.*)/) {	# acquire the destination file name 
+    if (/.\+FNAME=(.*)/) {	# acquire the destination file name 
       $fname_out = $+;
     last if (defined($dir) and defined($fname_out));
     }
