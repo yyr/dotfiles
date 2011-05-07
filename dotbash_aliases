@@ -63,7 +63,7 @@ alias lout='gnome-session-save --logout'
 alias oup="~/bin/orgup.sh"
 alias shrc='source ~/.bashrc'
 alias orgcoNpush='cd ~/git/org && git add . && git commit -m "`date`" || git pull --rebase && git push origin HEAD || cd $OLD'
-alias update_dotfiles='cd ~/git/dotfiles && ./place_all.pl || cd $OLD'
+alias update_dotfiles='cd ~/git/dotfiles && ./place_all.pl || . ~/.bashrc || cd $OLD '
 
 #delete
 alias del='mv --target-directory=$HOME/.Trash/'
