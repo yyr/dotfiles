@@ -9,8 +9,14 @@
 ! Remember quotations are not used in .res files.
 
 ! White background/black foreground
+*wkColorMap : BlAqGrYeOrReVi200
 *wkForegroundColor  : (/0.,0.,0./)
 *wkBackgroundColor  : (/1.,1.,1./)
+; *wkBackgroundColor : white 
+; *wkForegroundColor : black 
+*FuncCode : ~ 
+*TextFuncCode : ~ 
+*Font : helvetica 
 
 ! Have a favorite colormap that you use for everything? You can
 ! make it your default here (note the name is NOT in quotes).
@@ -28,6 +34,8 @@
 ! Make default X11 window larger (adjust as necessary)
 *wkWidth                     : 800
 *wkHeight                    : 800
+; *wkWidth : 900 
+; *wkHeight : 900
 
 ! Increase the default (16mb) contour memory
 ! For example, if you have gridded data that
