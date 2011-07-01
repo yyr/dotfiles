@@ -1,0 +1,6 @@
+# -*- mode: shell-script; -*-
+#+DEST=$HOME/
+#+FNAME=.bashrc
+
+[extensions]
+hgext.fetch=
