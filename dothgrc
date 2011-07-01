@@ -1,6 +1,6 @@
 # -*- mode: shell-script; -*-
 #+DEST=$HOME/
-#+FNAME=.bashrc
+#+FNAME=.hgrc
 
 [extensions]
 hgext.fetch=
