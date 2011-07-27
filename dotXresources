@@ -1,4 +1,3 @@
-!# -*- mode: conf; -*-
 !#+DEST=$HOME/
 !#+FNAME=.Xresources
 !source : http://www.xfce.org/various/Xresources.txt
@@ -29,7 +28,7 @@ XTerm*saveLines: 1000
 XTerm*allowSendEvents: True
 XTerm*sessionMgt: false
 !XTerm*eightBitInput:  false
-!XTerm*metaSendsEscape: true
+XTerm*metaSendsEscape: true
 !XTerm*internalBorder:  10
 !XTerm*highlightSelection:  true
 !XTerm*VT100*colorBDMode:  on
