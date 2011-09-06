@@ -1,0 +1,5 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.xinitrc
+
+xmodmap .Xmodmap

@@ -2,6 +2,5 @@
 #+DEST=$HOME/
 #+FNAME=.Xmodmapx
 
-keycode 102 = Alt_L
-
-(scratch “$ “)
+# alt right would be another left ctrl
+keycode 108 = Control_L
