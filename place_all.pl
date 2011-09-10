@@ -15,7 +15,7 @@ use File::Copy;
 my $Home = $ENV{'HOME'};
 my $base_dir = shift // '.' ;
 my ($this_script)=fileparse("$0"); # aquire the script name
-my @excludes = ( '.gitignore','nytprof.out','place_all.pl' ) ; # add here for skipping from process by this script
+my @excludes = ( '.gitignore', 'nytprof.out', 'place_all.pl' ) ; # add here for skipping from process by this script
 opendir(my $dh, $base_dir ) || die  "cannot open Directory $base_dir : $! \n";
 my @files = readdir($dh);
 closedir $dh;
@@ -32,9 +32,9 @@ sub get_file_details {
       $dir = $+;
     }
 
-    if (/.\+FNAME=(.*)/) {	# acquire the destination file name 
+    if (/.\+FNAME=(.*)/) {      # acquire the destination file name
       $fname_out = $+;
-    last if (defined($dir) and defined($fname_out));
+      last if (defined($dir) and defined($fname_out));
     }
   }
   close($fh);
@@ -42,9 +42,11 @@ sub get_file_details {
 }
 
 foreach my $x (@files) {
-  next if ( -d $x ); # skip for . and .. or any dirs comes in
+  next if ( -d $x );          # skip for . and .. or any dirs comes in
+
   next if ( "$this_script" eq $x ); #skip the current script
-  next if ($x ~~ @excludes); #skip those are in excludes
+  next if ($x ~~ @excludes);        #skip those are in excludes
+  next if ( $x =~ /.back$/ );	    # skip if it is backed up file
   my ($dest_dir , $copy_as ) = get_file_details($x);
   $dest_dir =~ s/\$HOME/$Home/;
   my $copy_as_in = "$dest_dir"."$copy_as"; # concat the destnation dir and file
