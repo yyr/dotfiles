@@ -6,25 +6,44 @@
 # ALIAS
 # --------------------------------------------------------------------------
 
-# Navigation 
+# Navigation
 # --------------------------
 
-# I got this http://hayne.net/MacDev/Bash/aliases.bash 
+# BOOKMARKing
+# I got this http://hayne.net/MacDev/Bash/aliases.bash
 # The following aliases (S , L and G) are for saving frequently used directories
 # You can save a directory using an abbreviation of your choosing. Eg. save ms
 # You can subsequently move to one of the saved directories by using cd with
 # the abbreviation you chose. Eg. cd ms  (Note that no '$' is necessary.)
+
 if [ ! -f ~/.dirs ]; then  # if doesn't exist, create it
     touch ~/.dirs
 else
     source ~/.dirs
 fi
+
 alias L='cat ~/.dirs'
-G () { cd ${1:-$(pwd)} ; } # goes to distination dir otherwise , stay in the dir
-S () { /bin/sed "/$@/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; }
-R () { /bin/sed "/$@/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs;}
-alias U='source ~/.dirs'
-shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
+
+G () {				# goes to distination dir otherwise , stay in the dir
+    cd ${1:-$(pwd)} ;
+}
+
+S () {				# SAVE a BOOKMARK
+    sed "/$@/d" ~/.dirs > ~/.dirs1;
+    \mv ~/.dirs1 ~/.dirs;
+    echo "$@"=\"`pwd`\" >> ~/.dirs;
+    source ~/.dirs ;
+}
+
+R () {				# remove a BOOKMARK
+    sed "/$@/d" ~/.dirs > ~/.dirs1;
+    \mv ~/.dirs1 ~/.dirs;
+}
+
+alias U='source ~/.dirs' 	# Update BOOKMARK stack
+# set the bash option so that no '$' is required when using the above facility
+shopt -s cdable_varsi
+# -----------------------------------------------------------------
 
 #for ease between folder
 #alias .='echo "$PWD"'
@@ -168,8 +187,8 @@ alias f='find . -iname'
 
 # gitting
 #--------------------------
-alias gis='git status' 
-alias gb="git branch" 
+alias gis='git status'
+alias gb="git branch"
 alias gba="git branch -a"
 alias gco='git checkout '
 alias gad='git add .'
@@ -191,10 +210,6 @@ alias gst="git status"
 alias gr="git rm"
 alias gmv="git mv"
 alias gu="git pull --rebase && git push origin HEAD"
-
-# grads
-# -----------
-alias grads='grads -l'
 
 
 # mounting and unmounting
