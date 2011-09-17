@@ -15,7 +15,7 @@ use File::Copy;
 my $Home = $ENV{'HOME'};
 my $base_dir = shift // '.' ;
 my ($this_script)=fileparse("$0"); # aquire the script name
-my @excludes = ( '.gitignore', 'nytprof.out', 'place_all.pl' ) ; # add here for skipping from process by this script
+my @excludes = ( '.gitignore', 'nytprof.out', 'place_all.pl', 'README.org' ) ; # add here for skipping from process by this script
 opendir(my $dh, $base_dir ) || die  "cannot open Directory $base_dir : $! \n";
 my @files = readdir($dh);
 closedir $dh;
