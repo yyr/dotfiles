@@ -28,19 +28,16 @@
 *.sql
 *.sqlite
 
-# Back Ups, Emacs autosave #
-*.bak
-
 # OS generated files #
 .DS_Store?
 ehthumbs.db
 Icon?
 Thumbs.db
 
-# buildlog i keep in one place
+# buildlog I keep in one place
 buildlog/
 
-# Garbage (emacs autosaving)
+# Garbage (emacs autosaving) ,manual backups #
 .\#*
 \#*\#
 *~
@@ -50,6 +47,7 @@ buildlog/
 core
 core.*
 *~
+*.bak
 
-# auctex autogenered folder ~auto/~
+# auctex autogenered folder ~auto/~ #
 auto/
