@@ -28,7 +28,7 @@
 *.sql
 *.sqlite
 
-# Back Ups, Emacs autosave #         
+# Back Ups, Emacs autosave #
 *.bak
 
 # OS generated files #
@@ -50,3 +50,6 @@ buildlog/
 core
 core.*
 *~
+
+# auctex autogenered folder ~auto/~
+auto/
