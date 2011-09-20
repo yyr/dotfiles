@@ -165,6 +165,7 @@ alias e='emacs &'
 alias ec='emacsclient'
 alias edebug='emacs --debug-init'
 alias ect='emacsclient -t temp || rm -f temp'
+alias eda='emacs --daemon'
 
 # grepping
 # ----------
