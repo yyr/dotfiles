@@ -2,7 +2,7 @@
 #+DEST=$HOME/
 #+FNAME=.screenrc
 
-# Set the default window name to 
+# Set the default window name to
 shelltitle "$ |bash"
 startup_message off
 
@@ -12,7 +12,7 @@ attrcolor b ".I"
 # tell screen how to set colors. AB = background, AF=foreground
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 # erase background with current bg color
-defbce "on" 
+defbce "on"
 
 # Some decryption hints:
 # %{= KW}     background light black (aka dark gray) with foreground light white
@@ -43,7 +43,7 @@ autodetach on
 
 screen -t emacs emacs
 screen -t work 1
-screen -t lab/lpy 2 
-screen -t git 3 
-screen -t site 4 
+screen -t lab/lpy 2
+screen -t git 3
+screen -t site 4
 screen -t misc 5

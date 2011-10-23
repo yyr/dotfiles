@@ -20,12 +20,12 @@ if [ -f ~/.bash_custom ]; then
     . ~/.bash_custom
 fi
 
-# enable programmable completion features 
+# enable programmable completion features
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion  > /dev/null
 fi
 
-#perlbrew 
+#perlbrew
 if [ -f ~/perl5/perlbrew/etc/bashrc  ]; then
     . ~/perl5/perlbrew/etc/bashrc
 fi
@@ -64,12 +64,12 @@ esac
 force_color_prompt=yes
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -83,14 +83,14 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-	PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
+    *)
+        ;;
 esac
 
-#ADDING ENV VARS 
+#ADDING ENV VARS
 # ---------------------
 
 export PATH=$PATH:/bin:/usr/bin
@@ -145,22 +145,22 @@ s() { # do sudo, or sudo the last command if no argument given
 }
 
 psgrep() {
-	if [ ! -z $1 ] ; then
-		echo "Grepping for processes matching $1..."
-		ps aux | grep $1 | grep -v grep
-	else
-		echo "!! Need name to grep for"
-	fi
+    if [ ! -z $1 ] ; then
+        echo "Grepping for processes matching $1..."
+        ps aux | grep $1 | grep -v grep
+    else
+        echo "!! Need name to grep for"
+    fi
 }
 
 grab() {
-	sudo chown -R ${USER} ${1:-.}
+    sudo chown -R ${USER} ${1:-.}
 }
 
-# clock - A bash clock that can run in your terminal window. 
-clock () 
-{ 
-while true;do clear;echo "===========";date +"%r";echo "===========";sleep 1;done 
+# clock - A bash clock that can run in your terminal window.
+clock ()
+{
+    while true;do clear;echo "===========";date +"%r";echo "===========";sleep 1;done
 }
 
 #-------------------------------------------------------------
@@ -189,5 +189,5 @@ if  [ -f ~/.perlbrew/perl5/perlbrew/etc/bashrc ] ; then
 fi
 
 
- 
+
 #+END

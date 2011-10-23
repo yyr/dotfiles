@@ -46,7 +46,7 @@ foreach my $x (@files) {
 
   next if ( "$this_script" eq $x ); #skip the current script
   next if ($x ~~ @excludes);        #skip those are in excludes
-  next if ( $x =~ /.back$/ );	    # skip if it is backed up file
+  next if ( $x =~ /.back$/ );       # skip if it is backed up file
   my ($dest_dir , $copy_as ) = get_file_details($x);
   $dest_dir =~ s/\$HOME/$Home/;
   my $copy_as_in = "$dest_dir"."$copy_as"; # concat the destnation dir and file

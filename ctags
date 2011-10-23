@@ -1,0 +1,7 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.ctags
+
+--langdef=ncl
+--langmap=ncl:.ncl
+--regex-swine=/^[ \t]?*[function|procedure]*([a-zA-Z0-9_]+)/\1/d,definition/

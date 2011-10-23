@@ -24,23 +24,23 @@ fi
 
 alias L='cat ~/.dirs'
 
-G () {				# goes to distination dir otherwise , stay in the dir
+G () {              # goes to distination dir otherwise , stay in the dir
     cd ${1:-$(pwd)} ;
 }
 
-S () {				# SAVE a BOOKMARK
+S () {              # SAVE a BOOKMARK
     sed "/$@/d" ~/.dirs > ~/.dirs1;
     \mv ~/.dirs1 ~/.dirs;
     echo "$@"=\"`pwd`\" >> ~/.dirs;
     source ~/.dirs ;
 }
 
-R () {				# remove a BOOKMARK
+R () {              # remove a BOOKMARK
     sed "/$@/d" ~/.dirs > ~/.dirs1;
     \mv ~/.dirs1 ~/.dirs;
 }
 
-alias U='source ~/.dirs' 	# Update BOOKMARK stack
+alias U='source ~/.dirs'    # Update BOOKMARK stack
 # set the bash option so that no '$' is required when using the above facility
 shopt -s cdable_vars
 
