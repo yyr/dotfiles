@@ -1,0 +1,12 @@
+Copyright (C) Yagnesh Raghava Yakkala. http://yagnesh.org
+Author: Yagnesh Raghava Yakkala <yagnesh@NOSPAM.live.com>
+
+
+* dot files
+different configuration files I accumulated. not many.. not perfect.
+
+there is place_all.pl script which places each files in appropriate folders
+
+
+* licence
+GPL v3 or later

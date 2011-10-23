@@ -92,31 +92,6 @@ alias update_dotfiles='cd ~/git/dotfiles && ./place_all.pl || . ~/.bashrc || cd 
 #delete
 alias del='mv --target-directory=$HOME/.Trash/'
 
-#workstations & sites
-alias amu='ssh -Y yagnesh@amur.porc.lowtem.hokudai.ac.jp'
-alias kor='ssh -Y yagnesh@korsakov.porc.lowtem.hokudai.ac.jp'
-alias kur='ssh -Y yagnesh@kuril.porc.lowtem.hokudai.ac.jp'
-alias sup='ssh -Y bu3107@wine.hucc.hokudai.ac.jp'
-alias sap='ssh -Y sapporoindians@sapporoindians.com'
-alias yuz='ssh -Y yagnesh@yuzhno.porc.lowtem.hokudai.ac.jp'
-alias lubu='ssh -Y yagnesh@okhotsk19.lowtem.hokudai.ac.jp'
-alias lpy='ssh -Y yagnesh@raghava-note.lowtem.hokudai.ac.jp'
-alias huisa='ssh -Y huisa@huisa.net'
-alias blade='ssh -Y yagnesh@blade.ees.hokudai.ac.jp'
-alias sunku='ssh -Y yagnesh@sunku.ees.hokudai.ac.jp'
-
-export vamu=yagnesh@amur.porc.lowtem.hokudai.ac.jp
-export vkor=yagnesh@korsakov.porc.lowtem.hokudai.ac.jp
-export vkur=yagnesh@kuril.porc.lowtem.hokudai.ac.jp
-export vsup=bu3107@wine.hucc.hokudai.ac.jp
-export vsap=sapporoindians@sapporoindians.com
-export vyuz=yagnesh@yuzhno.porc.lowtem.hokudai.ac.jp
-export vlpy=yagnesh@raghava-note.lowtem.hokudai.ac.jp
-export vhuisa=huisa@huisa.net
-export vblade=yagnesh@blade.ees.hokudai.ac.jp
-export vlubu=yagnesh@okhotsk19.lowtem.hokudai.ac.jp
-export vsunku=yagnesh@okhotsk19.lowtem.hokudai.ac.jp
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
