@@ -207,7 +207,7 @@ alias smacs=$HOME/bin/emacs-screen.sh
 alias killbg='kill -9 %' # CAUTION
 alias clean='rm *~ .*~ .#* \#*\#'
 alias y='echo ITS OVER DUDE'
-alias xp='vmplayer vmware/winxp/winxp.vmx'
+alias xp='vmplayer /dump/vmware/winxp/winxp.vmx &> /tmp/vmplayer.log &'
 
 # quit shell
 alias q='exit'
