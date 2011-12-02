@@ -58,6 +58,12 @@ alias pd='pushd "$PWD"'
 alias cd='OLD="$PWD"; cd '
 alias ,='BACK="$OLD"; OLD="$PWD"; cd "$BACK"'
 
+# make use of S,G two switch over two folder
+alias sn='S n'
+alias st='S t'
+alias gn='G n'
+alias gt='G t'
+
 # apt
 # --------------------------
 # alias install='sudo apt-get install'
