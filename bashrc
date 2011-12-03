@@ -25,11 +25,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion  > /dev/null
 fi
 
-#perlbrew
-if [ -f ~/perl5/perlbrew/etc/bashrc  ]; then
-    . ~/perl5/perlbrew/etc/bashrc
-fi
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -117,24 +112,11 @@ MAIL=/var/spool/mail/yagnesh && export MAIL
 #FUNCTIONS
 # ---------------------
 
-# CAT & MORE combined
-function cm () { cat $1 | more; }
-
-####
-#-----------------------------------------------------------------
-####
-
 function _exit()        # Function to run upon exit of shell.
 {
-    echo -e "Well Done YAG baby"
+    echo -e "Well Done YAG baby, See you SOON"
 }
 trap _exit EXIT
-
-function cuttail() # cut last n lines in file, 10 by default
-{
-    nlines=${2:-10}
-    sed -n -e :a -e "1,${nlines}!{P;N;D;};N;ba" $1
-}
 
 s() { # do sudo, or sudo the last command if no argument given
     if [[ $# == 0 ]]; then
@@ -144,50 +126,4 @@ s() { # do sudo, or sudo the last command if no argument given
     fi
 }
 
-psgrep() {
-    if [ ! -z $1 ] ; then
-        echo "Grepping for processes matching $1..."
-        ps aux | grep $1 | grep -v grep
-    else
-        echo "!! Need name to grep for"
-    fi
-}
-
-grab() {
-    sudo chown -R ${USER} ${1:-.}
-}
-
-# clock - A bash clock that can run in your terminal window.
-clock ()
-{
-    while true;do clear;echo "===========";date +"%r";echo "===========";sleep 1;done
-}
-
-#-------------------------------------------------------------
-# Misc utilities:
-#-------------------------------------------------------------
-
-function ask()          # See 'killps' for example of use.
-{
-    echo -n "$@" '[y/n] ' ; read ans
-    case "$ans" in
-        y*|Y*) return 0 ;;
-        *) return 1 ;;
-    esac
-}
-
-# Make the following commands run in background automatically:
-#function firefox() { command firefox "$@" & }
-
-if [ -f ~/.rvm/scripts/rvm ]; then
-    source ~/.rvm/scripts/rvm
-    rvm 1.9.2
-fi
-
-if  [ -f ~/.perlbrew/perl5/perlbrew/etc/bashrc ] ; then
-    source ~/.perlbrew/perl5/perlbrew/etc/bashrc
-fi
-
-
-
-#+END
+# .bashrc ends here
