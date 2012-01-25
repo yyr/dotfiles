@@ -1,0 +1,35 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.offlineimaprc
+
+[general]
+# NOTE: cronjob calls the quiet UI with -u
+accounts = GMail
+
+[Account GMail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+maxsyncaccounts = 3
+maxconnections = 3
+
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/Maildir/ymsc
+
+[Repository Gmail-Remote]
+type = Gmail
+remoteuser = yagneshmsc@gmail.com
+realdelete = no
+
+# "[Gmail]/Some Folder" --> some_folder
+nametrans = lambda folder: re.sub('^inbox$', 'INBOX',
+                           re.sub(' +', '_',
+                           re.sub(r'.*/(.*)$', r'\1', folder).lower()))
+
+folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
+                                                     '[Google Mail]/Spam',
+                                                     '[Google Mail]/Bin',
+                                                     '[Google Mail]/Bin',
+                                                     '[Google Mail]/Important'
+                                                     ]
