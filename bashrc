@@ -10,16 +10,6 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# system customization # SYSTEM DEPENDENT
-if [ -f ~/.bash_custom ]; then
-    . ~/.bash_custom
-fi
-
 # enable programmable completion features
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion  > /dev/null
@@ -107,6 +97,22 @@ export EDITOR
 
 # Sets the Mail Environment Variable
 MAIL=/var/spool/mail/yagnesh && export MAIL
+
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Alias plugins
+if [ -f ~/.bash_plugins ]; then
+    . ~/.bash_plugins
+fi
+
+# system customization # SYSTEM DEPENDENT
+if [ -f ~/.bash_custom ]; then
+    . ~/.bash_custom
+fi
+
 
 # ---------------------
 #FUNCTIONS
