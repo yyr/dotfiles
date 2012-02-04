@@ -4,3 +4,4 @@
 
 [extensions]
 hgext.fetch=
+hgext.purge=
