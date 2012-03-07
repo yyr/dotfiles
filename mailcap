@@ -1,0 +1,4 @@
+# -*- mode: shell-script; -*-
+#+DEST=$HOME/
+#+FNAME=.mailcap
+application/*; xdg-open %s
