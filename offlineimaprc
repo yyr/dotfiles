@@ -21,6 +21,12 @@ localfolders = ~/Maildir/ymsc
 type = Gmail
 remoteuser = yagneshmsc@gmail.com
 realdelete = no
+remotepasseval = keyring.get_password("offlineimap","yagneshmsc@host.net")
+
+# remember to put password in keyring (eg: python session)
+# $ python
+# >>> import keyring
+# >>> keyring.set_password("offlineimap","username@host.net", "MYPASSWORD")'
 
 # "[Gmail]/Some Folder" --> some_folder
 nametrans = lambda folder: re.sub('^inbox$', 'INBOX',
@@ -29,7 +35,6 @@ nametrans = lambda folder: re.sub('^inbox$', 'INBOX',
 
 folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Spam',
-                                                     '[Google Mail]/Bin',
                                                      '[Google Mail]/Bin',
                                                      '[Google Mail]/Important'
                                                      ]
