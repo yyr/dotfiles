@@ -1,0 +1,8 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.Xdefaults
+
+[Desktop]
+Session=gnome
+Language=en_US.utf8
+Layout=us
