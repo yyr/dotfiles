@@ -1,30 +1,37 @@
 !#+DEST=$HOME/
 !#+FNAME=.Xresources
-!source : http://www.xfce.org/various/Xresources.txt
 
 ! this are Xresources to make xterm look good
 ! put into ~/.Xresources
 ! after changing contents, run xrdb -merge .Xresources
-! gentoo has a bug so that it doesnt read it when X starts, so add above
-! command to /etc/xfce4/xinitrc (top) and be happy.
 
-!xterm*background:  Black
-!xterm*foreground:  Grey
-xterm*font:     -Misc-Fixed-Medium-R-Normal--20-200-75-75-C-100-ISO10646-1
-!xterm*font:        -misc-fixed-medium-r-normal--18-*-*-*-*-*-iso10646-1
-!xterm*iconPixmap: ...
-!xterm*iconPixmap:       /usr/share/pixmaps/gnome-gemvt.xbm
-!xterm*iconMask:         /usr/share/pixmaps/gnome-gemvt-mask.xbm
-!XTerm*iconName: terminal
-!Mwm*xterm*iconImage: /home/a/a1111aa/xterm.icon
+
+#ifdef COLOR
+*customization:	-color
+#endif
+
+! my preferred font - specified exactly, just to make sure
+!#define FONT -b&h-lucidatypewriter-bold-r-normal-sans-12-120-75-75-m-70-iso8859-1
+
+*faceName: DejaVu Sans Mono
+*faceSize: 12
+
+XTerm*reverseWrap:      true
+XTerm*scrollTtyOutput:  false
 XTerm*loginShell: true
 XTerm*foreground: gray90
 XTerm*background: black
 XTerm*cursorColor: rgb:00/80/00
 XTerm*borderColor: white
 XTerm*scrollColor: black
-XTerm*visualBell: true
-XTerm*saveLines: 1000
+XTerm*visualBell: false
+XTerm*saveLines: 5000
+
+xterm*iconPixmap:       /usr/share/pixmaps/gnome-gemvt.png
+!xterm*iconMask:         /usr/share/pixmaps/gnome-gemvt-mask.png
+
+XTerm*iconName: terminal
+!Mwm*xterm*iconImage: /home/a/a1111aa/xterm.icon
 
 !! XTerm.VT100.allowSendEvents: True
 XTerm*allowSendEvents: True
@@ -57,14 +64,7 @@ XTerm*color14: cyan
 XTerm*color15: white
 XTerm*colorUL: yellow
 XTerm*colorBD: white
-!XTerm*mainMenu*backgroundPixmap:     gradient:vertical?dimension=400&start=gray10&end=gray40
-!XTerm*mainMenu*foreground:          white
-!XTerm*vtMenu*backgroundPixmap:       gradient:vertical?dimension=550&start=gray10&end=gray40
-!XTerm*vtMenu*foreground:             white
-!XTerm*fontMenu*backgroundPixmap:     gradient:vertical?dimension=300&start=gray10&end=gray40
-!XTerm*fontMenu*foreground:           white
-!XTerm*tekMenu*backgroundPixmap:      gradient:vertical?dimension=300&start=gray10&end=gray40
-!XTerm*tekMenu*foreground:            white
+
 !XTerm Profiles (idea from dag wieers)
 XTerm*rightScrollBar: true
 
