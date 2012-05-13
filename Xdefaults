@@ -1,5 +1,5 @@
-# -*- mode: conf; -*-
-#+DEST=$HOME/
-#+FNAME=.Xdefaults
+! -*- mode: conf; -*-
+!+DEST=$HOME/
+!+FNAME=.Xdefaults
 
-emacs.font+ -misc-fixed-medium-r-semicondensed--13-*-*-*-c-60-iso8859-1
+! emacs.font+ -misc-fixed-medium-r-semicondensed--13-*-*-*-c-60-iso8859-1

@@ -1,6 +1,7 @@
 !#+DEST=$HOME/
 !#+FNAME=.Xresources
 !source : http://www.xfce.org/various/Xresources.txt
+
 ! this are Xresources to make xterm look good
 ! put into ~/.Xresources
 ! after changing contents, run xrdb -merge .Xresources
@@ -24,10 +25,11 @@ XTerm*borderColor: white
 XTerm*scrollColor: black
 XTerm*visualBell: true
 XTerm*saveLines: 1000
+
 !! XTerm.VT100.allowSendEvents: True
 XTerm*allowSendEvents: True
 XTerm*sessionMgt: false
-!XTerm*eightBitInput:  false
+XTerm*eightBitInput:  false
 XTerm*metaSendsEscape: true
 !XTerm*internalBorder:  10
 !XTerm*highlightSelection:  true
@@ -35,6 +37,8 @@ XTerm*metaSendsEscape: true
 !XTerm*VT100*colorBD:  blue
 !XTerm.VT100.eightBitOutput:  true
 !XTerm.VT100.titeInhibit:  false
+
+! colors
 XTerm*color0: black
 XTerm*color1: red3
 XTerm*color2: green3
@@ -63,3 +67,41 @@ XTerm*colorBD: white
 !XTerm*tekMenu*foreground:            white
 !XTerm Profiles (idea from dag wieers)
 XTerm*rightScrollBar: true
+
+
+! UXTERM configurations
+
+! [0] black
+UXTerm*color0: #242424
+UXTerm*color8: #242424
+
+! [1] red
+UXTerm*color1: firebrick1
+UXTerm*color9: firebrick1
+
+! [2] green
+UXTerm*color2: palegreen
+UXTerm*color10: palegreen
+
+! [3] yellow
+UXTerm*color3: LightGoldenrod1
+UXTerm*color11: LightGoldenrod1
+
+! [4] blue
+UXTerm*color4: SteelBlue1
+UXTerm*color12: SteelBlue1
+
+! [5] magenta
+UXTerm*color5: violet
+UXTerm*color13: violet
+
+! [6] cyan
+UXTerm*color6: CadetBlue2
+UXTerm*color14: CadetBlue2
+
+! [7] white
+UXTerm*color7: white
+UXTerm*color15: white
+
+! make meta works as expected
+UXTerm*eightBitInput: false
