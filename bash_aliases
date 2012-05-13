@@ -124,6 +124,8 @@ alias lt='ls -ltr'         # sort by date, most recent last
 alias lm='ls -al |more'    # pipe through 'more'
 alias lr='ls -lR'          # recursive ls
 alias sl='ls'
+alias rm='rm -v'
+
 
 # Human readable
 alias du='du -h'
@@ -205,7 +207,7 @@ alias farumount='fusermount -u ~/far_projects'
 #--------------------------
 alias smacs=$HOME/bin/emacs-screen.sh
 alias killbg='kill -9 %' # CAUTION
-alias clean='rm *~ .*~ .#* \#*\#'
+alias clean='rm -v *~ .*~ .#* \#*\#'
 alias y='echo ITS OVER DUDE'
 alias xp='vmplayer /dump/vmware/winxp/winxp.vmx &> /tmp/vmplayer.log &'
 
