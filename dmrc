@@ -1,6 +1,6 @@
 # -*- mode: conf; -*-
 #+DEST=$HOME/
-#+FNAME=.Xdefaults
+#+FNAME=.dmrc
 
 [Desktop]
 Session=gnome
