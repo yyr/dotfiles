@@ -51,5 +51,5 @@ foreach my $x (@files) {
   $dest_dir =~ s/\$HOME/$Home/;
   my $copy_as_in = "$dest_dir"."$copy_as"; # concat the destnation dir and file
   print $x ,"  -->  " ,$copy_as_in, "\n";
-  copy($x,$copy_as_in) or die "Copy Failed: $!";
+  copy($x,$copy_as_in) or print "\nCopy Failed: $! \n\n";
 }
