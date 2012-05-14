@@ -1,5 +1,5 @@
-!#+DEST=$HOME/
-!#+FNAME=.Xresources
+!+DEST=$HOME/
+!+FNAME=.Xresources
 
 ! this are Xresources to make xterm look good
 ! put into ~/.Xresources
@@ -136,3 +136,9 @@ UXTerm*eightBitInput: false
                      Shift <Btn1Up>: select-end(CLIPBOARD, CUT_BUFFER1) \n\
                     ~Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(PRIMARY, CUT_BUFFER0) \n\
                      Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(CLIPBOARD, CUT_BUFFER1)
+
+
+! send control+tab control+shift+tab for screen (changing tabs similar to firefox)
+*vt100.translations: #override \n\
+        Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n \
+        Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n

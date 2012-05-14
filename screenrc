@@ -6,11 +6,19 @@
 shelltitle "$ |bash"
 startup_message off
 
-# terminfo and termcap for nice 256 color terminal
-# allow bold colors - necessary for some reason
-attrcolor b ".I"
-# tell screen how to set colors. AB = background, AF=foreground
-termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+vbell off
+defutf8 on
+defscrollback 1024
+nonblock on
+
+# hardstatusline
+hardstatus on
+hardstatus alwayslastline
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+# hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%<'
+
+# Fix stupid screen overwriting
+altscreen on
 # erase background with current bg color
 defbce "on"
 
@@ -32,18 +40,25 @@ caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{= rW}
 
 #caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{-}"
 
-# Use C-z instead of C-a as this makes more sense for Emacs
-escape ^za
-
 # Detach on hangup
 autodetach on
 
 #startups
 #--------
 
-screen -t emacs emacs
-screen -t work 1
-screen -t lab/lpy 2
-screen -t git 3
-screen -t site 4
-screen -t misc 5
+# screen -t emacs emacs -nw
+screen -t ncl 1
+screen -t git 2
+screen -t work 3
+screen -t other 4
+screen -t misc
+
+# Use C-z instead of C-a as this makes more sense for Emacs
+escape ^za
+
+# with corresponding settings in .Xresources file
+# Ctrl-Tab
+bindkey "^[[27;5;9~" next
+
+# Ctrl-Shift-Tab
+bindkey "^[[27;6;9~" prev
