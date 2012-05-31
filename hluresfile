@@ -1,4 +1,4 @@
-! -*- mode: conf -*-
+!! -*- mode: conf-xdefaults; -*-
 !+DEST=$HOME/
 !+FNAME=.hluresfile
 !=========================================
@@ -12,7 +12,7 @@
 
 ! http://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml
 ! *wkColorMap         : rainbow+gray
-*wkColorMap : BlAqGrYeOrReVi200
+! *wkColorMap : BlAqGrYeOrReVi200
 
 ! Font
 *Font           : helvetica
