@@ -3,7 +3,7 @@
 #+FNAME=.gitconfig
 [user]
 	name = Yakkala Yagnesh Raghava
-	email = yagnesh@live.com
+	email = hi@yagnesh.org
 
 [color]
 	ui = true
