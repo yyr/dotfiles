@@ -147,7 +147,7 @@ alias hi='history'
 alias e='emacs &'
 alias ec='emacsclient'
 alias edebug='emacs --debug-init'
-alias ect='emacsclient -t temp || rm -f temp'
+alias ect='emacsclient -tc'
 alias eda='emacs --daemon'
 
 # grepping
