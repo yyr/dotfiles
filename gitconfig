@@ -28,6 +28,9 @@
      # disable quoting non ascii chars
      quotepath = false
 
+[user]
+    logallrefupdates=true
+
 [alias]
     st = status
     ci = commit
@@ -41,3 +44,4 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     staged = diff --cached
+    tagbydate = log --tags --simplify-by-decoration --pretty=\"format:%ai %d\"

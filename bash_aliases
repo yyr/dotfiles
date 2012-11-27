@@ -189,7 +189,7 @@ alias gcheckback="git checkout HEAD --"
 alias ggoback="git checkout HEAD^ --"
 alias gitreset="git reset --hard"
 
-alias gl="git pull --rebase"
+alias gl="git pull"
 alias gp="git push origin HEAD"
 alias gcp="git cherry-pick"
 alias gst="git status"
