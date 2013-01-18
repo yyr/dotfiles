@@ -17,7 +17,8 @@
 *faceSize: 12
 
 XTerm*reverseWrap:      true
-XTerm*scrollTtyOutput:  false
+!XTerm*scrollTtyOutput:  false
+XTerm*scrollTtyOutput:  true
 XTerm*loginShell: true
 XTerm*foreground: gray90
 XTerm*background: black
