@@ -40,21 +40,24 @@ export VISUAL=emacsclient
 export EDITOR
 
 # PS1
+function my_prompt {
+    local EMK="\[\033[1;30m\]"
+    local EMR="\[\033[1;31m\]"
+    local EMG="\[\033[1;32m\]"
+    local EMY="\[\033[1;33m\]"
+    local EMB="\[\033[1;34m\]"
+    local EMM="\[\033[1;35m\]"
+    local EMC="\[\033[1;36m\]"
+    local EMW="\[\033[1;37m\]"
+    local RESET='\e[0m'
 
+    PS1=`echo "${EMC}\h${RESET}:${EMB}\w${RESET}$ "`
+}
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+PROMPT_COMMAND=my_prompt
+PS2='    '
 
-if [ -f ~/.bash_plugins ]; then
-    . ~/.bash_plugins
-fi
-
-# system customization
-if [ -f ~/.bash_custom ]; then
-    . ~/.bash_custom
-fi
-
+#
 function _exit()        # Function to run upon exit of shell.
 {
     echo -e "Well done yag, see you soon :)"
@@ -68,5 +71,18 @@ s() { # do sudo, or sudo the last command if no argument given
         sudo "$@"
     fi
 }
+
+# load splitted files
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_plugins ]; then
+    . ~/.bash_plugins
+fi
+
+if [ -f ~/.bash_custom ]; then
+    . ~/.bash_custom            # system specific
+fi
 
 # .bashrc ends here
