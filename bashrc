@@ -41,25 +41,19 @@ export EDITOR
 
 # PS1
 
-# Alias definitions.
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Alias plugins
 if [ -f ~/.bash_plugins ]; then
     . ~/.bash_plugins
 fi
 
-# system customization # SYSTEM DEPENDENT
+# system customization
 if [ -f ~/.bash_custom ]; then
     . ~/.bash_custom
 fi
-
-
-# ---------------------
-# functions
-# ---------------------
 
 function _exit()        # Function to run upon exit of shell.
 {
