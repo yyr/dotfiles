@@ -1,6 +1,9 @@
-# -*- mode: shell-script; -*-
+# -*- mode: conf; -*-
 #+DEST=$HOME/
 #+FNAME=.hgrc
+
+[ui]
+username = Yakkala Yagnesh Raghava <hi@yagnesh.org>
 
 [extensions]
 hgext.fetch=
