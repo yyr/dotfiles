@@ -1,4 +1,5 @@
 # -*- mode: shell-script; -*-
 #+DEST=$HOME/
 #+FNAME=.mailcap
+application/pdf; xpdf -q %s
 application/*; xdg-open %s
