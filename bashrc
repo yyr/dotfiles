@@ -51,7 +51,11 @@ function my_prompt {
     local EMW="\[\033[1;37m\]"
     local RESET='\e[0m'
 
-    PS1=`echo "${EMC}\h${RESET}:${EMB}\w${RESET}$ "`
+    if [ x$TERM == x"xterm" ]; then
+        PS1=`echo "${EMC}\h${RESET}:${EMB}\w${RESET}$ "`
+    else
+        PS1="\u@\h:\w$ "
+    fi
 }
 
 PROMPT_COMMAND=my_prompt
