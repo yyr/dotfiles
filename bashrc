@@ -15,6 +15,13 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion  > /dev/null
 fi
 
+# for supporting completion in emacs
+if [[ $INSIDE_EMACS ]]; then
+    set completion-display-width 0
+    set horizontal-scroll-mode on
+    set page-completions off
+fi
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL="ignoredups:ignorespace"
