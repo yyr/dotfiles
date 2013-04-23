@@ -1,6 +1,6 @@
 # -*- mode: conf; -*-
 #+DEST=$HOME/
-#+FNAME=.Xmodmapx
+#+FNAME=.Xmodmap
 
 # alt right would be another left ctrl
 keycode 108 = Control_L
