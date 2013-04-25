@@ -58,7 +58,7 @@ alias pd='pushd "$PWD"'
 alias cd='OLD="$PWD"; cd '
 alias ,='BACK="$OLD"; OLD="$PWD"; cd "$BACK"'
 
-# make use of S,G two switch over two folder
+# make use of S,G two switch over two folder (quick bookmarks)
 alias sn='S n'
 alias st='S t'
 alias gn='G n'
@@ -94,6 +94,7 @@ alias oup="~/bin/orgup.sh"
 alias shrc='source ~/.bashrc'
 alias orgcoNpush='cd ~/git/org && git add . && git commit -m "`date`" || git pull --rebase && git push origin HEAD || cd $OLD'
 alias update_dotfiles='cd ~/git/dotfiles && ./place_all.pl || . ~/.bashrc || cd $OLD '
+alias t='time'
 
 #delete
 alias del='mv --target-directory=$HOME/.Trash/'
@@ -185,6 +186,7 @@ alias gcam="git commit -a -m"
 alias ga="git add"
 alias lol="git lol"
 alias lola="git lola"
+alias gic="git clean -xdf"
 alias gcheckback="git checkout HEAD --"
 alias ggoback="git checkout HEAD^ --"
 alias gitreset="git reset --hard"
@@ -197,6 +199,8 @@ alias gr="git rm"
 alias gmv="git mv"
 alias gu="git pull --rebase && git push origin HEAD"
 
+# python specific
+alias pyprof='python -m cProfile'
 
 # mounting and unmounting
 # -----------------------
