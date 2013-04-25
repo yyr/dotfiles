@@ -199,6 +199,8 @@ alias gr="git rm"
 alias gmv="git mv"
 alias gu="git pull --rebase && git push origin HEAD"
 
+# python specific
+alias pyprof='python -m cProfile'
 
 # mounting and unmounting
 # -----------------------
