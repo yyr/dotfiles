@@ -58,10 +58,11 @@ def link_file(f, dest):
         lgr.error('Destination "%s" doesn\'t exits or not writable' % dest_dir)
         return False
     else:
-        if os.path.exists(dest) and not os.path.islink(dest):
-            lgr.info('Backing up original to %s' % dest + '.orig')
-            shutil.move(dest, dest + '.orig')
-        else:
+        if os.path.exists(dest):
+            if not os.path.islink(dest):
+                lgr.info('Backing up original to %s' % dest + '.orig')
+                shutil.move(dest, dest + '.orig')
+
             try:
                 os.unlink(dest)
             except OSError:
