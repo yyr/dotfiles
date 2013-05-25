@@ -12,10 +12,24 @@ import os
 import inspect
 import re
 import shutil
+import logging
+
+
+def _get_logger():
+    LOG_FORMAT = '%(levelname)-6s: %(message)s'
+    logger = logging.getLogger('wrfout')
+    logger.setLevel(logging.INFO)
+    if not logger.handlers:
+        hlr = logging.StreamHandler()
+        hlr.setFormatter(logging.Formatter(LOG_FORMAT))
+        logger.addHandler(hlr)
+    return logger
+
 
 this_file_path = os.path.abspath(os.path.split(inspect.getfile(
     inspect.currentframe()))[0])
 ignores = [".git", "README.org", ".gitignore"]
+lgr = _get_logger()
 
 
 def find_attri(f):
@@ -24,35 +38,48 @@ def find_attri(f):
         for line in fh:
             if re.match(r'.\+DEST=(.*)', line):
                 d = re.sub(r'.\+DEST=(.*)', r'\1', line)
-            if re.match(r'.\+FNAME=(.*)', line):
+            elif re.match(r'.\+FNAME=(.*)', line):
                 n = re.sub(r'.\+FNAME=(.*)', r'\1', line)
-            if d and n:
+            elif d and n:
                 break
     return [n, d]
 
 
 def link_file(f, dest):
-    try:
-        if os.access(os.path.dirname(dest), os.W_OK):
-            if os.path.exists(dest) and not os.path.islink(dest):
-                shutil.move(dest, dest + '.orig')
-            else:
+    """
+    Check if the destination is writable or not. Backup if there is already a
+    destination file(don't bother about links) exists.
+
+    Finally link `f` to `dest`.
+    """
+    dest_dir = os.path.dirname(dest)
+    if not os.path.exists(dest_dir) or not os.access(
+            os.path.dirname(dest), os.W_OK):
+        lgr.error('Destination "%s" doesn\'t exits or not writable' % dest_dir)
+        return False
+    else:
+        if os.path.exists(dest) and not os.path.islink(dest):
+            lgr.info('Backing up original to %s' % dest + '.orig')
+            shutil.move(dest, dest + '.orig')
+        else:
+            try:
                 os.unlink(dest)
-
-        os.symlink(os.path.abspath(f), dest)
-
-    except OSError:
-        print('*FAILED*: linking %s => %s' % (f, dest))
+            except OSError:
+                lgr.error('*FAILED*: deleting %s' % dest)
+        try:
+            return os.symlink(os.path.abspath(f), dest)
+        except OSError:
+            lgr.error('*FAILED*: linking %s => %s' % (f, dest))
 
 
 def place_file(f):
     [fname, d] = find_attri(f)
     if fname and d:
         dest = os.path.expandvars(d.rstrip()+fname.rstrip())
-        print('   %s => %s' % (f, dest))
-        link_file(f, dest)
+        lgr.info('Placing %s => %s' % (f, dest))
+        return link_file(f, dest)
     else:
-        print('*FAILED*: %s => ???' % f)
+        lgr.error('*FAILED*: %s => ???' % f)
 
 
 def main():
