@@ -46,6 +46,7 @@ buildlog/
 .#~
 *~
 *.bak
+TAGS
 
 # auctex autogenered folder ~auto/~ #
 auto/
