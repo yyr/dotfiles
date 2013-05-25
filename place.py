@@ -34,13 +34,15 @@ def find_attri(f):
 def link_file(f, dest):
     try:
         if os.access(os.path.dirname(dest), os.W_OK):
-            if  os.path.exists(dest) and not os.path.islink(dest):
-                shutil.move(dest, dest + '.backup')
+            if os.path.exists(dest) and not os.path.islink(dest):
+                shutil.move(dest, dest + '.orig')
             else:
                 os.unlink(dest)
+
         os.symlink(os.path.abspath(f), dest)
+
     except OSError:
-        print('*FAILED*: %s => %s' % (f, dest))
+        print('*FAILED*: linking %s => %s' % (f, dest))
 
 
 def place_file(f):
