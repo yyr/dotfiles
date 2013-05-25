@@ -37,8 +37,13 @@ def place_file(f):
         dest = os.path.expandvars(d.rstrip()+fname.rstrip())
         print('   %s => %s' % (f, dest))
         try:
-            shutil.copy(f, dest)
-        except IOError:
+            if os.access(os.path.dirname(dest), os.W_OK):
+                if not os.path.islink(dest):
+                    shutil.move(dest, dest + '.backup')
+                else:
+                    os.unlink(dest)
+            os.symlink(os.path.abspath(f), dest)
+        except OSError:
             print('*FAILED*: %s => %s' % (f, dest))
     else:
         print('*FAILED*: %s => ???' % f)
