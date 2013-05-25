@@ -37,11 +37,12 @@ def place_file(f):
         dest = os.path.expandvars(d.rstrip()+fname.rstrip())
         print('   %s => %s' % (f, dest))
         try:
-            shutil.copy(f,dest)
+            shutil.copy(f, dest)
         except IOError:
             print('*FAILED*: %s => %s' % (f, dest))
     else:
         print('*FAILED*: %s => ???' % f)
+
 
 def main():
     os.chdir(this_file_path)
