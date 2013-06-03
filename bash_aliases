@@ -209,7 +209,7 @@ alias farumount='fusermount -u ~/far_projects'
 
 
 # virtual machines
-alias xp='vmplayer /dump/vmware/winxp/winxp.vmx &> /tmp/vmplayer.log &'
+alias xp='vmplayer ~/vmware/winxp/winxp.vmx &> /tmp/vmplayer.log &'
 alias vb="virtualbox --fullscreen --startvm "
 
 
