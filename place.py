@@ -36,10 +36,10 @@ def find_attri(f):
     n = d = None
     with open(f) as fh:
         for line in fh:
-            if re.match(r'.\+DEST=(.*)', line):
-                d = re.sub(r'.\+DEST=(.*)', r'\1', line)
-            elif re.match(r'.\+FNAME=(.*)', line):
-                n = re.sub(r'.\+FNAME=(.*)', r'\1', line)
+            if re.match(r'.*\+DEST=(.*)', line):
+                d = re.sub(r'.*\+DEST=(.*)', r'\1', line)
+            elif re.match(r'.*\+FNAME=(.*)', line):
+                n = re.sub(r'.*\+FNAME=(.*)', r'\1', line)
             elif d and n:
                 break
     return [n, d]
