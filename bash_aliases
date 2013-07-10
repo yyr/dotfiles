@@ -5,6 +5,15 @@
 # --------------------------------------------------------------------------
 # ALIAS
 # --------------------------------------------------------------------------
+timeit () {
+    date1=$(date +"%s")
+    $@
+    date2=$(date +"%s")
+    diff=$(($date2-$date1))
+    date -u -d @"$diff" +'Time stat: %-Mm %-Ss'
+    # echo "$(($diff / 60)) minutes and $(($diff % 60)) seconds elapsed."
+}
+
 
 # Navigation
 # --------------------------
@@ -221,11 +230,11 @@ alias clean='rm -v *~ .*~ .#* \#*\#'
 alias y='echo ITS OVER DUDE'
 alias bt='gdb -batch-silent -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" -ex "set logging off" -ex "quit" --args'
 alias bt_inspect='gdb -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" --args'
+alias ncl='time ncl'
 
 wh () {
     ls -l `which $1`
 }
-
 
 # quit shell
 alias q='exit'
