@@ -48,6 +48,9 @@ buildlog/
 *.bak
 TAGS
 
+# emacs
+flycheck*
+
 # auctex autogenered folder ~auto/~ #
 auto/
 
