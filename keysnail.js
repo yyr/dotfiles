@@ -7,9 +7,6 @@
 // Put all your code except special key, set*key, hook, blacklist.
 // ========================================================================= //
 //{{%PRESERVE%
-// Put your codes here
-//}}%PRESERVE%
-// ========================================================================= //
 
 // ========================= Special key settings ========================== //
 
@@ -23,6 +20,7 @@ key.universalArgumentKey = "C-u";
 key.negativeArgument1Key = "C--";
 key.negativeArgument2Key = "C-M--";
 key.negativeArgument3Key = "M--";
+key.suspendKey           = "<f2>";
 
 // ================================= Hooks ================================= //
 
