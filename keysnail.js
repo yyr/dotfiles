@@ -386,6 +386,11 @@ key.setViewKey('f', function (ev) {
                 command.focusElement(command.elementsRetrieverTextarea, 0);
             }, 'Focus to the first textarea', true);
 
+key.setViewKey('F', function (ev) {
+                command.focusElement(command.elementsRetrieverTextarea, 1);
+            }, 'Focus to the second textarea', true);
+
+
 key.setViewKey('M-p', function (ev) {
                 command.walkInputElement(command.elementsRetrieverButton, true, true);
             }, 'Focus to the next button', false);
