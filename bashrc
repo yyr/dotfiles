@@ -48,21 +48,16 @@ export EDITOR
 
 # PS1
 function my_prompt {
-    local EMK="\[\033[1;30m\]"
-    local EMR="\[\033[1;31m\]"
-    local EMG="\[\033[1;32m\]"
-    local EMY="\[\033[1;33m\]"
-    local EMB="\[\033[1;34m\]"
-    local EMM="\[\033[1;35m\]"
-    local EMC="\[\033[1;36m\]"
-    local EMW="\[\033[1;37m\]"
-    local RESET='\e[0m'
+    case ${TERM} in
+	    xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+            # PS1="\[\033[0;37m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[0;31m\]\h'; else echo '\[\033[0;33m\]\u\[\033[0;37m\]@\[\033[0;96m\]\h'; fi)\[\033[0;37m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;37m\]]\n\[\033[0;37m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]"
+            PS1="\[\033[0;37m\]\$([[ \$? != 0 ]] && echo \"\[\033[0;31m\]\342\234\227\[\033[0;37m\] \")$(if [[ ${EUID} == 0 ]]; then echo '\[\033[0;31m\]\h'; else echo '\[\033[0;33m\]\u\[\033[0;37m\]@\[\033[0;96m\]\h'; fi):\[\033[0;32m\]\w\n\[\033[0;37m\]\[\033[0m\]$ "
+		    ;;
+        *)
+            PS1="\u@\h:\w$ "
+            ;;
+    esac
 
-    if [ x$TERM == x"xterm" ]; then
-        PS1=`echo "${EMC}\h${RESET}:${EMB}\w${RESET}$ "`
-    else
-        PS1="\u@\h:\w$ "
-    fi
 }
 
 PROMPT_COMMAND=my_prompt
