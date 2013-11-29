@@ -1,5 +1,5 @@
 # -*- mode: conf; -*-
 #+DEST=$HOME/
 #+FNAME=.mailcap
-application/pdf; xpdf -q %s
+# application/pdf; evince %s
 application/*; xdg-open %s
