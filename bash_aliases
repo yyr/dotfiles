@@ -76,10 +76,12 @@ alias gt='G t'
 # apt
 # --------------------------
 # alias install='sudo apt-get install'
+alias gapt='sudo apt-get'
 alias remove='sudo apt-get remove'
 alias purge='sudo apt-get remove --purge'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias upgrade='sudo apt-get upgrade'
+alias upstall='sudo apt-get update && sudo apt-get install'
 #alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias search='apt-cache search'
 alias show='apt-cache show'
@@ -99,11 +101,9 @@ alias lout='gnome-session-save --logout'
 
 # Custom
 # --------------------------
-alias oup="~/bin/orgup.sh"
 alias shrc='source ~/.bashrc'
 alias orgcoNpush='cd ~/git/org && git add . && git commit -m "`date`" || git pull --rebase && git push origin HEAD || cd $OLD'
-alias update_dotfiles='cd ~/git/dotfiles && ./place_all.pl || . ~/.bashrc || cd $OLD '
-alias t='time'
+
 
 #delete
 alias del='mv --target-directory=$HOME/.Trash/'
@@ -152,6 +152,7 @@ alias emasc='emacs'
 # shorts
 alias a='alias'
 alias hi='history'
+alias t='time'
 
 # emacs
 alias e='emacs &'
@@ -222,19 +223,24 @@ alias xp='vboxmanage startvm "xp"'
 alias vb="virtualbox --fullscreen --startvm "
 
 
-# MISC
+# Misc
 #--------------------------
-alias smacs=$HOME/bin/emacs-screen.sh
 alias killbg='kill -9 %' # CAUTION
 alias clean='rm -v *~ .*~ .#* \#*\#'
-alias y='echo ITS OVER DUDE'
-alias bt='gdb -batch-silent -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" -ex "set logging off" -ex "quit" --args'
-alias bt_inspect='gdb -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" --args'
 alias ncl='time ncl'
 
-wh () {
-    ls -l `which $1`
-}
+# gdb
+alias bt='gdb -batch-silent -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" -ex "set logging off" -ex "quit" --args'
+alias bt_inspect='gdb -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" --args'
+
+# Python servers
+alias webs='python -m SimpleHTTPServer'
+alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
+alias fakemail='python -m smtpd -n -c DebuggingServer localhost:20025'
 
 # quit shell
 alias q='exit'
+# which ls
+wh () {
+    ls -l `which $1`
+}
