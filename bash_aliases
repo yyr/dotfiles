@@ -240,6 +240,149 @@ alias fakemail='python -m smtpd -n -c DebuggingServer localhost:20025'
 
 # quit shell
 alias q='exit'
+
+
+# Display random digits speckled across the screen
+alias noise='tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;3$(($RANDOM % 8))" grep --color "[^ ]"'
+alias distract='cat /dev/urandom | hexdump -C | grep "ca fe"'
+
+#clear the terminal (no upwards scrolling)
+alias cls='printf "\033c"'
+
+#sha1 hash
+alias sha1='openssl sha1'
+
+#Display current time
+alias now='date +"%T"'
+
+#Display current date and time
+alias nowdate='date +"%A %Y年%m月%d日 %T"'
+
+#List of ports
+alias ports='netstat -tulanp'
+
+# rm safety net
+alias del='rm -I --preserve-root'
+
+#Top 10 memory eating processes
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+#Top 10 cpu eating processes
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+# shoot the fat ducks in your current dir and sub dirs
+alias ducks='du -cm | sort -nr | head'
+
+# Easily pass a string to and look for it in the process table.
+# Even removes the grep of the current line.
+alias psgrep='ps -ef | grep -v $$ | grep -i '
+
+# Helps with copy and pasting to and from a terminal using X and the mouse
+# Especially for piping output to the clipboard and vice versa
+alias xcopy='xsel --clipboard --input'
+alias xpaste='xsel --clipboard --output'
+
+### Functions
+
+#Calculator (The equation cannot have spaces)
+# > ? 5+5
+# > 10
+? () { echo "$@" | bc -l; }
+
+cdl() { cd"$@"; ls -alF; }
+
+#Display basic system information
+function sysstats() {
+    echo -e "\nMachine information:" ; uname -a
+    echo -e "\nUsers logged on:" ; w -h
+    echo -e "\nCurrent date :" ; date
+    echo -e "\nMachine status :" ; uptime
+    echo -e "\nMemory status :" ; free
+    echo -e "\nFilesystem status :"; df -h
+}
+
+#Lists the ip(s) for a domain name
+# > whatip google.com
+whatip() {
+    if [ $# != 1 ]; then
+        echo "Usage: whatip <ip address>"
+    else
+        nslookup $1 | grep Add | grep -v '#' | cut -f 2 -d ' '
+    fi
+}
+
+# Makes a directory of the specified name and immediately switches to that directory
+mkcd() {
+    if [ $# != 1 ]; then
+        echo "Usage: mkcd <dir>"
+    else
+        mkdir -p $1 && cd $1
+    fi
+}
+
+#Changes directories up the specified number
+up() { [ $(( $1 + 0 )) -gt 0 ] && cd $(eval "printf '../'%.0s {1..$1}"); }
+
+#Generate a alphanumeric password/random string
+passgen() {
+    echo $(< /dev/urandom tr -dc A-Za-z0-9_ | head -c$1)
+}
+
+#Flip a coin
+coinflip() {
+	if [[ $(($RANDOM % 2)) -eq 1 ]]; then
+		echo "Heads";
+	else
+		echo "Tails"
+	fi
+}
+
+#Create a copy of a file with a .bkup suffix
+bkup() {
+    cp $1 $1.bkup
+}
+
+#Restore a .bkup file (Warning: will overwrite)
+bkdown() {
+    mv $1 " basename "$1" .bkup"
+}
+
+#Grab the summary from the corresponding wikipedia page
+wiki() {
+	dig +short txt $1.wp.dg.cx
+}
+
+#Simple timer
+timeit(){
+	echo "Press any key to stop"
+#	time -f "%E real" read -sn1
+	/usr/bin/time -f "%E real" $(read -sn1)
+}
+
+#Slowly echo the input back out to the screen
+slowecho(){
+	echo $1 | pv -qL 10
+}
+
+#Kill the parent process of a mouse-clicked X window
+xmurder(){
+	WINDOW_ID=`xwininfo | grep "Window id:" | awk '{print $4}'`
+	PROCESS_ID=`xprop -id $WINDOW_ID _NET_WM_PID | awk '{print $3}'`
+	kill -9 $PROCESS_ID
+}
+
+murder() {
+    pids=`ps -ef | grep $1  | grep -v grep  | awk '{print $2}'`
+    for p in $pids; do
+        echo "kill pid:" $p
+        kill -9 $p
+    done
+}
+
+
 # which ls
 wh () {
     ls -l `which $1`
