@@ -1,6 +1,7 @@
-# -*- mode: conf; -*-
-#+DEST=$HOME/
-#+FNAME=.Xmodmap
+! -*- mode: conf; -*-
+!+DEST=$HOME/
+!FNAME=.Xmodmap
 
-# alt right would be another left ctrl
-keycode 108 = Control_L
+keysym Caps_Lock = Control_L
+add Control = Control_L
+! keycode 108 = Control_L
