@@ -504,3 +504,7 @@ key.setCaretKey('M-p', function (ev) {
 key.setCaretKey('M-n', function (ev) {
                 command.walkInputElement(command.elementsRetrieverButton, false, true);
             }, 'Focus to the previous button', false);
+
+key.setGlobalKey('M-x', function (aEvent, aArg) {
+    ext.select(aArg, aEvent);
+}, 'List exts and execute selected one');
