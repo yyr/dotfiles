@@ -156,10 +156,20 @@ alias t='time'
 
 # emacs
 alias e='emacs &'
-alias ec='emacsclient'
 alias edebug='emacs --debug-init'
 alias ect='emacsclient -tc'
+alias ecn='emacsclient -c'
 alias eda='emacs --daemon'
+function ec()
+{
+    if (( $# < 1 )); then
+        emacsclient -c &
+    else
+        echo came here
+        emacsclient $@ &
+    fi
+}
+
 
 # grepping
 # ----------
