@@ -222,6 +222,15 @@ alias gr="git rm"
 alias gmv="git mv"
 alias gu="git pull --rebase && git push origin HEAD"
 
+# vagrant
+alias vb="vagrant box"
+alias vh="vagrant halt"
+alias vp="vagrant provision"
+alias vs="vagrant status"
+alias vssh="vagrant ssh"
+alias vu="vagrant up"
+
+
 # python specific
 alias pyprof='python -m cProfile'
 
