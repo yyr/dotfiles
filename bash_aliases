@@ -102,7 +102,7 @@ alias lout='gnome-session-save --logout'
 # Custom
 # --------------------------
 alias shrc='source ~/.bashrc'
-alias orgcoNpush='cd ~/git/org && git add . && git commit -m "`date`" || git pull --rebase && git push origin HEAD || cd $OLD'
+alias orgcoNpush='cd ~/git/org && git add -A && git commit -m "`date`" || git pull --rebase && git push origin HEAD || cd $OLD'
 
 # remote
 alias hclogin='kinit yagnesh@HCOOP.NET && aklog hcoop.net'
