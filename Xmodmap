@@ -1,6 +1,6 @@
 ! -*- mode: conf; -*-
 !+DEST=$HOME/
-!+wwhichFNAME=.Xmodmap
+!+FNAME=.Xmodmap
 
 ! No Caps Lock
 clear lock
