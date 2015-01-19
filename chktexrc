@@ -2,12 +2,355 @@
 #+DEST=$HOME/
 #+FNAME=.chktexrc
 
-Silent
-{
-# indents
-\indent
 
-# ifpdf
-\ifpdf
+# QuoteStyle = Logical
+
+
+CmdLine
+{
+    -q -v 3
+}
+
+#####################################################################
+UserWarn
+{
+
+    \unknown
+}
+
+[
+
+# case-insensitive
+
+]
+
+#####################################################################
+# Input directories.
+TeXInputs
+{
 
 }
+
+#####################################################################
+OutFormat
+{
+
+# -v4; verbose lacheck mode
+"!"%f!", line %l: %m!n%r%s%t!n%u!n"
+
+}
+
+
+#####################################################################
+Silent
+{
+    \rm \em \bf \it \sl \sf \sc \tt \selectfont
+    \rmfamily \sffamily \ttfamily \mdseries \bfseries
+    \slshape \scshape \relax
+    \vskip \pagebreak \nopagebreak
+
+    \textrm \textem \textbf \textit \textsl \textsf \textsc \texttt
+
+    \clearpage \ddots \dotfill \flushbottom \fussy \indent \linebreak
+    \onecolumn \pagebreak \pushtabs \poptabs \scriptsize \sloppy
+    \twocolumn \vdots
+    \today \kill \newline \thicklines \thinlines
+
+    \columnsep \space \item \tiny \footnotesize \small \normalsize
+    \normal \large \Large \LARGE \huge \Huge \printindex
+
+    \newpage \listoffigures \listoftables \tableofcontents
+    \maketitle \makeindex
+
+    \hline \hrule \vrule
+
+    \centering
+
+    \bigskip \medskip \smallskip
+
+    \noindent \expandafter
+
+    \makeatletter \makeatother
+
+    \columnseprule
+
+    \textwidth \textheight \hsize \vsize
+
+    \if \fi
+
+    \csname \endcsname
+
+    \z@ \p@ \@warning \typeout
+
+    \dots \ldots \input \endinput \nextline \leavevmode \cdots
+-    \appendix \listfiles \and \quad
+    \vfill \vfil \hfill \hfil \topmargin \oddsidemargin
+    \frenchspacing \nonfrenchspacing
+    \begingroup \endgroup \par
+
+    \vrefwarning \upshape \headheight \headsep \hoffset \voffset
+    \cdot \qquad
+    \left \right
+
+    \ifpdf
+}
+
+
+#####################################################################
+HyphDash
+{
+    1 3
+}
+
+NumDash
+{
+    2
+}
+
+WordDash
+{
+    3
+}
+
+#####################################################################
+WipeArg
+{
+    \label:{} \ref:{} \vref:{} \pageref:{} \index:{} \cite:[]{}
+    \input:{} \verbatiminput:[]{} \listinginput:[]{}{}
+    \verbatimtabinput:[]{} \include:{} \includeonly:{}
+    \bibitem:[]{}
+}
+
+#####################################################################
+MathEnvir
+{
+    displaymath math eqnarray array equation
+}
+
+#####################################################################
+VerbEnvir
+{
+    verbatim comment listing verbatimtab rawhtml errexam picture texdraw
+}
+
+Abbrev
+{
+# Ordinals
+1st. 2nd. 3rd. 4th.
+# Titles
+Mr. Mrs. Miss. Ms. Dr. Prof. St.
+
+#
+# Days
+# Mon. Tue. Wed. Thu. Fri. Sat. Sun.
+#
+# Months
+# Jan. Feb. Mar. Apr. May. Jun. Jul. Aug. Sep. Oct. Nov. Dec.
+#
+# Letters
+# Kt. Jr.
+#
+# Corporate
+# Co. Ltd.
+#
+# Addresses
+# Rd. Dr. St. Ave. Cres. Gdns. Sq. Circ. Terr. Pl. Arc. La. Clo. Ho. Est. Gn.
+#
+# Misc.
+# oe. pbab. ps. rsvp. Tx.
+}
+[
+###
+#
+# The first letter is case-insensitive in the abbrevs in this
+# list. Due to the nature of the checking algorithm used for
+# this, entries consisting of only one character will be
+# silently ignored.
+#
+##
+
+# Latin
+# cf. "et al." etc. qed. qv. viz.
+#
+# Corporate
+# inc. plc.
+#
+# Misc
+# fax. pcs. qty. tel. misc.
+]
+
+#####################################################################
+#
+# Commands which accent characters, meaning that \i or \j (\imath and
+# \jmath in mathmode) should be used instead of `i' and `j'
+#
+
+IJAccent
+{
+    \hat \check \breve \acute \grave \tilde \bar \vec \dot \ddot
+
+    \' \` \^ \" \~ \= \. \u \v \H \t
+
+###
+#
+# The  remaining  accent commands (\c,\d,\b) put their accent _under_
+# the  character,  not above, and should thus be used with normal i's
+# and j's.
+#
+###
+
+}
+
+#####################################################################
+#
+# Commands   which,  when  the  group  is  terminated,  needs  italic
+# correction.
+#
+
+Italic
+{
+    \it \em \sl
+}
+
+#####################################################################
+#
+# Commands which makes the font non-italic.
+#
+
+NonItalic
+{
+    \bf \rm \sf \tt \sc
+}
+
+#####################################################################
+#
+# Commands   which puts their argument into italic (and thus possibly
+# needs italic correction in the end.
+#
+
+ItalCmd
+{
+    \textit \textsl \emph
+}
+
+#####################################################################
+#
+# These  commands  all have in common that a pagebreak right in front
+# of  them  is  highly  undesirable; thus there should be no space in
+# front of them.
+#
+
+PostLink
+{
+    \index \label
+}
+
+#####################################################################
+#
+# These commands should not have a space in front of them for various
+# reasons.   I.e.   much  the  same as POSTLINK, but produces another
+# warning.
+#
+
+NotPreSpaced
+{
+    \footnote \footnotemark \/
+}
+
+#####################################################################
+#
+# The  commands  listed  here,  should be prepended with a `~', as in
+# "look  in  table~\ref{foo}", to avoid the references being split
+# across lines.
+#
+
+Linker
+{
+    \ref \vref \pageref \cite
+}
+
+#####################################################################
+#
+# Commands/characters  which  should  have  \cdots  in  between, e.g.
+# $1+2+3+\cdots+n$.
+#
+
+CenterDots
+{
+    = + - \cdot \div & \times \geq \leq < >
+}
+
+#####################################################################
+#
+# Commands/characters  which  should  have  \ldots  in  between, e.g.
+# $1,2,3,\ldots,n$.
+#
+
+LowDots
+{
+    . , ;
+}
+
+#####################################################################
+#
+# In maths mode, there are certain aliases for mathematical operators
+# like  sin, cos, etc.  Ignore the leading backslash in the commands,
+# and so forth.  You should list these below.
+#
+
+MathRoman
+{
+    log lg ln lim limsup liminf sin arcsin sinh cos arccos cosh tan
+    arctan tanh cot coth sec csc max min sup inf arg ker dim hom det
+    exp Pr gcd deg bmod pmod mod
+}
+
+#####################################################################
+#
+# These TeX commands have become unnecessary, as there are LaTeX cmds
+# that does the same. Purists should thus avoid these in their code.
+#
+# (These are a spell-corrected version of those lacheck uses).
+#
+
+Primitives
+{
+   \above \advance \catcode \chardef \closein \closeout \copy \count
+   \countdef \cr \crcr \csname \delcode \dimendef \dimen \divide
+   \expandafter \font \hskip \vskip \openout
+}
+
+#####################################################################
+#
+# Format: \command:characters
+#
+# We'll emit a warning if any of characters are found after the
+# command.
+#
+
+NoCharNext
+{
+   \left:{}$ \right:{}$
+}
+
+#####################################################################
+#
+# We're killing \verb@...@ commands and the arguments of the commands
+# listed above in WIPEARG by overwriting them with a string or a
+# single character.
+#
+# This  should  not contain an alphabetic character (in case the user
+# writes (\foo\verb@bar@), neither should it contain be one of LaTeX'
+# reserved  characters  (`#$%&~_^\{}'),  or any parenthesis character
+# ('()[]{}').   If  possible,  don't  use  a  punctuation  character,
+# either, or any spacing character.
+#
+# The  asterix is also unsuitable, as some commands behave in another
+# way  if  they  are  postpended with an asterix.  Which more or less
+# leaves  us  with  the  pipe.
+#
+# Please  note  that  this  may  also  be  a  _string_, which will be
+# repeated until the proper length is reached.
+#
+
+VerbClear = "|"
