@@ -1,35 +1,55 @@
 # -*- mode: conf; -*-
 #+DEST=$HOME/
 #+FNAME=.gitconfig
-[user]
-	name = Yakkala Yagnesh Raghava
-	email = hi@yagnesh.org
 
-[color]
-	ui = true
- [color "branch"]
-     current = yellow reverse
-     local = yellow
-     remote = green
- [color "diff"]
-     meta = yellow bold
-     frag = magenta bold
-     old = red bold
-     new = green bold
- [color "status"]
-     added = yellow
-     changed = green
-     untracked = cyan
- [color "diff"]
-     whitespace = red reverse
- [core]
-     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-     excludesfile = ~/.gitignore_global
-     # disable quoting non ascii chars
-     quotepath = false
+[user]
+    name = Yakkala Yagnesh Raghava
+    email = hi@yagnesh.org
+
+[core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
+    excludesfile = ~/.gitignore_global
+    # disable quoting non ascii chars
+    quotepath = false
+
+[diff]
+    renames = copies
+    algorithm = patience
 
 [user]
     logallrefupdates=true
+
+[merge]
+    stat = true
+
+[grep]
+    fullname = true
+
+[push]
+    default = current
+
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[color "diff"]
+    whitespace = red reverse
+
 
 [alias]
     st = status
@@ -40,7 +60,7 @@
     co = checkout
     cob = checkout -b
     df = diff
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     staged = diff --cached
