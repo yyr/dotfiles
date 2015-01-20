@@ -1,6 +1,6 @@
 #-*- mode: conf; -*-
 #+DEST=$HOME/
-#+FNAME=.Xmodmap
+#+FNAME=.gemrc
 
 gem: --no-ri --no-rdoc
 benchmark: false
