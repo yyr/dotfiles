@@ -65,3 +65,4 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     staged = diff --cached
     tagbydate = log --tags --simplify-by-decoration --pretty=\"format:%ai %d\"
+	track = "!f() { ([ $# -eq 2 ] && ( echo \"Setting tracking for branch \" $1 \" -> \" $2;git branch --set-upstream $1 $2; ) || ( git for-each-ref --format=\"local: %(refname:short) <--sync--> remote: %(upstream:short)\" refs/heads && echo --Remotes && git remote -v)); }; f"
