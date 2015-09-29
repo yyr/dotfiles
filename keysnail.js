@@ -9,6 +9,19 @@
 //{{%PRESERVE%
 // Put your codes here
 
+// keybinds
+
+
+key.setViewKey(["w"], function (ev) {
+                BrowserCloseTabOrWindow();
+            }, 'Close tab / window', false);
+
+key.setViewKey(["T"], function (ev) {
+                undoCloseTab();
+            }, 'Close tab / window', false);
+
+// builtin commands as ext
+
 key.setGlobalKey('M-x', function (aEvent, aArg) {
     ext.select(aArg, aEvent);
 }, 'List exts and execute selected one');
@@ -19,11 +32,67 @@ plugins.options["builtin_commands_ext.ext_list"] = [
     "restart-firefox"
 ];
 
-key.setViewKey('e', function (aEvent, aArg) {
+
+// Tanything
+
+key.setViewKey("a", function (ev, arg) {
+                   ext.exec("tanything", arg);
+               }, "view all tabs", true);
+
+plugins.options["tanything_opt.keymap"] = {
+    "C-z"   : "prompt-toggle-edit-mode",
+    "SPC"   : "prompt-next-page",
+    "b"     : "prompt-previous-page",
+    "j"     : "prompt-next-completion",
+    "k"     : "prompt-previous-completion",
+    "g"     : "prompt-beginning-of-candidates",
+    "G"     : "prompt-end-of-candidates",
+    "D"     : "prompt-cancel",
+    // Tanything specific actions
+    "O"     : "localOpen",
+    "a"     : "localClose",
+    "p"     : "localLeftclose",
+    "n"     : "localRightclose",
+    "l"     : "localAllclose",
+    "d"     : "localDomainclose",
+    "c"     : "localClipUT",
+    "C"     : "localClipU",
+    "e"     : "localMovetoend"
+};
+
+
+// Hist
+
+key.setViewKey('H', function (aEvent, aArg) {
+    ext.exec("history-show", aArg);
+}, 'show histories list', true);
+
+plugins.options["history.max-results"] = 5000;
+
+// HOK
+
+plugins.options["hok.hint_base_style"] = {
+  position : 'absolute',
+  zIndex : '2147483647',
+  color : '#000',
+  fontSize : '14px',
+  fontFamily : 'monaco',
+  fontWeight : 'normal',
+  lineHeight : '14px',
+  padding : '2px',
+  margin : '0px',
+  textTransform : 'lowercase'
+};
+
+plugins.options["hok.hint_color_link"]    = 'rgba(255, 225, 116, 0.7)';
+plugins.options["hok.hint_color_form"]    = 'rgba(210, 210, 210, 0.5)';
+plugins.options["hok.hint_color_focused"] = 'rgba(204, 102, 102, 0.5)';
+
+key.setViewKey('E', function (aEvent, aArg) {
     ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hok - Foreground hint mode', true);
 
-key.setViewKey('E', function (aEvent, aArg) {
+key.setViewKey('i', function (aEvent, aArg) {
     ext.exec("hok-start-background-mode", aArg);
 }, 'HoK - Background hint mode', true);
 
@@ -38,6 +107,9 @@ key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
 key.setViewKey('c', function (aEvent, aArg) {
     ext.exec("hok-yank-foreground-mode", aArg);
 }, 'Hok - Foreground yank hint mode', true);
+
+
+//  keybinds
 
 key.setGlobalKey('C-M-r', function (ev) {
                 userscript.reload();
@@ -94,7 +166,6 @@ key.setGlobalKey('C-r', function (ev) {
 key.setGlobalKey(["C-x", "k"], function (ev) {
                 BrowserCloseTabOrWindow();
             }, 'Close tab / window', false);
-
 key.setGlobalKey(["C-x", "K"], function (ev) {
                 closeWindow(true);
             }, 'Close the window', false);
