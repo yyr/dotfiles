@@ -3,11 +3,9 @@
 !+FNAME=.Xmodmap
 
 ! No Caps Lock
-clear lock
-
-! keysym Caps_Lock = Control_L
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
 add Control = Control_L
-keycode 37 =   Control_L
 
 ! Microsoft multimedia  keyboard
 keycode 123 =   XF86AudioRaiseVolume
