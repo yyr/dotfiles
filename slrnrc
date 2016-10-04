@@ -1,0 +1,93 @@
+% -*- mode: conf; -*-
+%+DEST=$HOME/
+%+FNAME=.Xmodmap
+
+% relevent ENV variables
+%
+EDITOR="emacsclient"
+
+% NNTPSERVER=""
+% TMP="~/tmp"
+% XBROWSER="mozilla"
+% BROWSER="elinks"
+
+
+% set followup, reply strings
+% colors
+% header, group display formats
+% editor commands
+% group_help_line
+% group_status_line
+% top_status_line
+
+% header_status_line
+% set new_subject_breaks_threads 1
+% query_read_group_cutoff "def:  100, number to load"
+% set reject_long_lines 0
+% set warn_followup_to 0
+% set *_help_line
+set wrap_flags 7   % setting it to 3 makes me wrap by hitting "W"
+
+%set auto_mark_article_as_read 0
+%ignore_quotes "^ ? ?[><=|]"
+
+ignore_quotes "^ ? ?[>=|]"
+
+
+%  %l:%M" ; possibly add these to date_format?
+set overview_date_format "%b %e"
+
+%header_display_format 0 "%F%-5S%-5l: [%15r] %t %70s"
+%header_display_format 0 "%F %D %14r   %t%s"
+
+group_display_format 0 "  %F%-5u  %n%35g  %d"
+group_display_format 1 "  %F%-5u [%-6t]  %n"
+group_display_format 2 "  %F%-5u [%-6t]  %n %-35g %d"
+
+
+
+
+set beep                      0  % no visual or audible beep
+set color_by_score            0
+set confirm_actions           2  % confirm printing articles
+set display_cursor_bar        0  % use the arrow.  better on a latent network
+set fold_headers              1  % fold headers longer than the RFC-defined 76
+set emphasized_text_mask      0
+set followup_date_format      "%B %d, %Y"
+%only change this if my email format changes
+%set followup_string "%f (%r) said..."
+set followup_string "%r <%f> said:"
+
+%             %p%n : %s %-20g -- %L (%P)
+set art_status_line     "(%n) %s %-9g - (%P)"
+set group_status_line   "%D nntp://%s %-15g - %L (%P)"
+set header_status_line  "%p[%u/%t unread] Group: %n%-20g - (%P)"
+
+% set this only if you have an FQDN, else 0
+%set highlight_unread_subjects 0
+set mouse                     0
+set hide_pgpsignature         1
+set query_next_article        2 % maybe
+set query_next_group          2 % maybe
+set query_read_group_cutoff  75 % maybe
+set reply_string              "At %n on %D, you said:"
+% If non-zero, slrn will draw the thread tree using simple ascii characters
+% if i use it on a bad term, then i get shitty characters like "mq" instead of
+% an arror.  sucks.
+set simulate_graphic_chars 1
+% putz with this?
+set smart_quote 1
+%set sorting_method 9             % thread, then sort by Date
+set sorting_method 11             % thread, then more recent last
+%set spool_check_up_on_nov 1
+set followup_strip_signature 0
+set unsubscribe_new_groups 1
+set use_flow_control 1
+set use_metamail 1               % use metamail for unsupported mime types
+% ?
+set use_mime 5
+%set use_tmpdir 1                 % put tmp files where specified in enviroment
+
+% include .slrn/slrnrc.local
+
+% vim: syntax=slrnrc
