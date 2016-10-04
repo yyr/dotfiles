@@ -51,8 +51,10 @@ TAGS
 # emacs
 flycheck*
 
-# auctex autogenered folder ~auto/~ #
+# latex auctex autogenered folder ~auto/~ #
 auto/
+*.fdb_latexmk
+*.fls
 
 #
 TAGS
