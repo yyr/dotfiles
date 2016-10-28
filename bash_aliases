@@ -158,7 +158,7 @@ alias hi='history'
 alias t='time'
 
 # emacs
-alias e='emacs &'
+alias e='emacs &!'
 alias edebug='emacs --debug-init'
 alias ect='emacsclient -tc'
 alias ecn='emacsclient -c'
@@ -249,7 +249,7 @@ alias vb="virtualbox --fullscreen --startvm "
 #--------------------------
 alias killbg='kill -9 %' # CAUTION
 alias clean='rm -v *~ .*~ .#* \#*\#'
-alias ncl='time ncl'
+alias ncl='time ncl -Q'
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 # gdb
@@ -410,3 +410,6 @@ murder() {
 wh () {
     ls -l `which $1`
 }
+
+#
+alias em=$'emacsclient -t --eval \'(let ((display-buffer-alist `(("^\\*magit: " display-buffer-same-window) ,display-buffer-alist))) (magit-status))\''
