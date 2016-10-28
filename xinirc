@@ -3,3 +3,13 @@
 #+FNAME=.xinitrc
 
 xmodmap .Xmodmap
+/usr/bin/stumpwm
+
+# Fallback cursor
+xsetroot -cursor_name left_ptr
+
+# Keyboard repeat rate
+xset r rate 200 60
+
+export VISUAL=emacsclient
+export EDITOR="$VISUAL"
