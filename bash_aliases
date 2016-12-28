@@ -93,7 +93,7 @@ ppa () {
 
 # Gnome
 # --------------------------
-alias o="gnome-open "
+alias o="gvfs-open "
 alias reboot="sudo /sbin/shutdown -r now"
 alias shutdown="sudo /sbin/shutdown -h now"
 alias shutup='gnome-session-save --shutdown-dialog'
