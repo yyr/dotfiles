@@ -158,7 +158,7 @@ alias hi='history'
 alias t='time'
 
 # emacs
-alias e='emacs &!'
+alias e='setsid emacs'
 alias edebug='emacs --debug-init'
 alias ect='emacsclient -tc'
 alias ecn='emacsclient -c'
