@@ -50,6 +50,7 @@ TAGS
 
 # emacs
 flycheck*
+.tramp_history
 
 # latex auctex autogenered folder ~auto/~ #
 auto/

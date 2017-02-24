@@ -1,0 +1,5 @@
+# -*- mode: conf; -*-
+#+DEST=$HOME/
+#+FNAME=.inputrc
+
+set bell-style visible
