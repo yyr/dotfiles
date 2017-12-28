@@ -93,7 +93,7 @@ ppa () {
 
 # Gnome
 # --------------------------
-alias o="gvfs-open "
+alias o="gio open "
 alias reboot="sudo /sbin/shutdown -r now"
 alias shutdown="sudo /sbin/shutdown -h now"
 alias shutup='gnome-session-save --shutdown-dialog'
@@ -405,6 +405,8 @@ murder() {
     done
 }
 
+alias v+='amixer set Master 5%+ &> /dev/null'
+alias v-='amixer set Master 5%- &> /dev/null'
 
 # which ls
 wh () {
