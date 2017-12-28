@@ -1,0 +1,60 @@
+# -*- mode: R; -*-
+#+DEST=$HOME/
+#+FNAME=.Rprofile
+
+local({
+  .path <- file.path("~/.rpackages", sprintf("%s.%s", getRversion()$major, getRversion()$minor))
+  .path <- normalizePath(.path)
+  if (!dir.exists(.path)) {
+    dir.create(.path, recursive = TRUE)
+  }
+  .libPaths(new = .path)
+})
+
+## assign a CRAN mirror
+local({r <- getOption("repos")
+      r["CRAN"] <- "https://cran.cnr.berkeley.edu/"
+      options(repos=r)})
+
+# warnings are errors
+options(warn = 2)
+
+q <- function (save="no", ...) {
+ quit(save=save, ...)
+}
+
+## Print Library Paths on Startup
+if (length(.libPaths()) > 1) {
+  msg <- "Using libraries at paths:\n"
+} else {
+  msg <- "Using library at path:\n"
+}
+
+libs <- paste("-", .libPaths(), collapse = "\n")
+
+message(msg, libs, sep = "")
+
+## Allow tab-complete of package names in “library()” or “require()”
+utils::rc.settings(ipck=TRUE)
+
+.First <- function(){
+  if(interactive()){
+    library(utils)
+    cat("\nWelcome to R, ", Sys.getenv("LOGNAME"), "!\n",sep="")
+    cat("-------------------\n",sep="")
+    timestamp(,prefix=paste("##------ [",getwd(),"] ",sep=""))
+  }
+}
+
+.Last <- function(){
+  if(interactive()){
+    hist_file <- Sys.getenv("R_HISTFILE")
+    if(hist_file=="") hist_file <- "~/.RHistory"
+    savehistory(hist_file)
+  }
+  cat("\nGoodbye,", Sys.getenv("LOGNAME"), "!", date(), "\n")
+}
+
+Sys.setenv(R_HISTSIZE='100000')
+
+message("\n*** Successfully loaded .Rprofile ***\n")
