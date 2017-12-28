@@ -13,7 +13,7 @@ import inspect
 import re
 import shutil
 import logging
-
+import sys
 
 def _get_logger():
     LOG_FORMAT = '%(levelname)-6s: %(message)s'
@@ -84,13 +84,20 @@ def place_file(f):
 
 
 def main():
-    os.chdir(this_file_path)
-    reg = re.compile("|".join(map(re.escape, ignores)))
+    if len(sys.argv) < 2:
+        os.chdir(this_file_path)
+        reg = re.compile("|".join(map(re.escape, ignores)))
+        for f in os.listdir(this_file_path):
+            if f == os.path.split(__file__)[1] or reg.search(f):
+                continue
+            place_file(f)
 
-    for f in os.listdir(this_file_path):
-        if f == os.path.split(__file__)[1] or reg.search(f):
-            continue
-        place_file(f)
+    else:
+        for f in sys.argv[1:]:
+            if os.path.exists(f):
+                place_file(f)
+            else:
+                print(f + ": no such file to place")
 
 
 if __name__ == '__main__':
