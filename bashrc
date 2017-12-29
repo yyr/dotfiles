@@ -15,10 +15,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion  > /dev/null
 fi
 
-for bcfile in ~/.bash_completion.d/* ; do
-    . $bcfile
-done
-
+if [ -d "~/.bash_completion.d/" ] ; then
+    for bcfile in ~/.bash_completion.d/* ; do
+        . $bcfile
+    done
+fi
 
 # for supporting completion in emacs
 if [[ $INSIDE_EMACS ]]; then
