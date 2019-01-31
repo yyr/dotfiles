@@ -24,3 +24,4 @@ if [ -n "$BASH_VERSION" ]; then
         fi
     fi
 fi
+PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"

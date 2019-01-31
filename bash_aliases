@@ -141,7 +141,7 @@ alias rm='rm -v'
 
 
 # Human readable
-alias du='du -h'
+alias du='du -sh'
 alias df='df -h'
 
 # MIS SPELLS
@@ -233,6 +233,8 @@ alias vu="vagrant up"
 
 # python specific
 alias pyprof='python -m cProfile'
+alias subdown='subliminal download -l en '
+
 
 # mounting and unmounting
 # -----------------------
@@ -342,7 +344,7 @@ mkcd() {
     if [ $# != 1 ]; then
         echo "Usage: mkcd <dir>"
     else
-        mkdir -p $1 && cd $1
+        mkdir -p "$1" && cd "$1"
     fi
 }
 

@@ -13,7 +13,7 @@ local({
 
 ## assign a CRAN mirror
 local({r <- getOption("repos")
-      r["CRAN"] <- "https://cran.cnr.berkeley.edu/"
+      r["CRAN"] <- "http://cran.rstudio.com/"
       options(repos=r)})
 
 # warnings are errors
