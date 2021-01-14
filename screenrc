@@ -49,11 +49,10 @@ autodetach on
 #--------
 
 # screen -t emacs emacs -nw
-screen -t ncl 1
-screen -t git 2
-screen -t work 3
-screen -t other 4
-screen -t misc
+screen -t plot 2
+screen -t emacs 3
+screen -t misc 4
+screen -t shell 1
 
 # Use C-z instead of C-a as this makes more sense for Emacs
 escape ^za
