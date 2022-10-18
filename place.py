@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 This script places every dot file to their destination.
 '''
@@ -34,7 +34,7 @@ lgr = _get_logger()
 
 def find_attri(f):
     n = d = None
-    with open(f) as fh:
+    with open(f, encoding="utf8") as fh:
         for line in fh:
             if re.match(r'.*\+DEST=(.*)', line):
                 d = re.sub(r'.*\+DEST=(.*)', r'\1', line)
@@ -68,7 +68,8 @@ def link_file(f, dest):
             except OSError:
                 lgr.error('*FAILED*: deleting %s' % dest)
         try:
-            return os.symlink(os.path.abspath(f), dest)
+            # return os.symlink(os.path.abspath(f), dest)
+            return shutil.copyfile(os.path.abspath(f), dest)
         except OSError:
             lgr.error('*FAILED*: linking %s => %s' % (f, dest))
 
